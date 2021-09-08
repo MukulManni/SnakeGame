@@ -1,0 +1,86 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: #444;
+}
+
+#screen {
+
+	position: absolute;
+	left: 20%;
+
+	height: 100%;
+	width: 60%;
+
+	background-color: black;
+}
+
+#snake {
+	position: relative;
+	top: 40%;
+	left: 2px;
+
+	height: 20px;
+	width: 40px;
+
+	background-color: green;
+}
+
+#food {
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	height: 15px;
+	width: 15px;
+
+	background-color: red;
+}
+
+.up {
+    animation-name: Up;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+.down {
+    animation-name: Down;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+.left {
+    animation-name: Left;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+.right {
+    animation-name: Right;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@keyframes Up {
+    100% {top: 0px;}
+}
+
+@keyframes Down {
+    100% {top: 100%;}
+}
+
+@keyframes Right {
+    100% {left: 100%;}
+}
+
+@keyframes Left {
+    100% {left: 0px;}
+}
