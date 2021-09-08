@@ -96,4 +96,4 @@ document.addEventListener("keydown", function(event){
 	//var fRight = window.getComputedStyle(food).getPropertyValue("right");
 	
 	//if(sTop <= fTop && sBot >= fBot && sLeft >= fLeft && sRight)
-})
+});
