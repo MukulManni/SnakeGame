@@ -85,15 +85,15 @@ document.addEventListener("keydown", function(event){
 
 	}
 
-	var sTop = window.getComputedStyle(snake).getPropertyValue("top");
-	var sBot = window.getComputedStyle(snake).getPropertyValue("bottom");
-	var fTop = window.getComputedStyle(food).getPropertyValue("top");
-	var fBot = window.getComputedStyle(food).getPropertyValue("bottom");
+	//var sTop = window.getComputedStyle(snake).getPropertyValue("top");
+	//var sBot = window.getComputedStyle(snake).getPropertyValue("bottom");
+	//var fTop = window.getComputedStyle(food).getPropertyValue("top");
+	//var fBot = window.getComputedStyle(food).getPropertyValue("bottom");
 
-	var sLeft = window.getComputedStyle(snake).getPropertyValue("left");
-	var sRight = window.getComputedStyle(snake).getPropertyValue("right");
-	var fLeft = window.getComputedStyle(food).getPropertyValue("left");
-	var fRight = window.getComputedStyle(food).getPropertyValue("right");
+	//var sLeft = window.getComputedStyle(snake).getPropertyValue("left");
+	//var sRight = window.getComputedStyle(snake).getPropertyValue("right");
+	//var fLeft = window.getComputedStyle(food).getPropertyValue("left");
+	//var fRight = window.getComputedStyle(food).getPropertyValue("right");
 	
-	if(sTop <= fTop && sBot >= fBot && sLeft >= fLeft && sRight)
+	//if(sTop <= fTop && sBot >= fBot && sLeft >= fLeft && sRight)
 })
