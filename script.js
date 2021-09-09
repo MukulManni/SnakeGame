@@ -3,16 +3,19 @@ var food = document.getElementById('food');
 var check = 0;
 var first = 0;
 
+var l = window.getComputedStyle(document.getElementById("screen")).getPropertyValue("left");
+var r = l + document.getElementById("screen").clientWidth;
+
+var b = document.getElementById("screen").clientHeight;
+
 document.addEventListener("keydown", function(event){
 	
 	if(event.key == "ArrowUp"){
 		if(check != 1 && check != 2){
-			if(first != 0){
-				var tmp = snake.clientWidth;
-				snake.style.width = snake.clientHeight + "px";
-				snake.style.height = tmp + "px";
-			}
-			else first = 1;
+			
+			var tmp = snake.clientWidth;
+			snake.style.width = snake.clientHeight + "px";
+			snake.style.height = tmp + "px";
 
 			snake.style.top = window.getComputedStyle(snake).getPropertyValue("top");
 	        snake.style.left = window.getComputedStyle(snake).getPropertyValue("left");
@@ -21,17 +24,16 @@ document.addEventListener("keydown", function(event){
 			snake.classList.add("up");
 
 			check = 1;	
+			first = 1;
 		}
 	}
 
 	else if(event.key == "ArrowDown"){
 		if(check != 2 && check != 1){
-			if(first != 0){	
-				var tmp = snake.clientWidth;
-				snake.style.width = snake.clientHeight + "px";
-				snake.style.height = tmp + "px";
-			}
-			else first = 1;
+			
+			var tmp = snake.clientWidth;
+			snake.style.width = snake.clientHeight + "px";
+			snake.style.height = tmp + "px";
 
 			snake.style.top = window.getComputedStyle(snake).getPropertyValue("top");
 	        snake.style.left = window.getComputedStyle(snake).getPropertyValue("left");
@@ -40,9 +42,9 @@ document.addEventListener("keydown", function(event){
 			snake.classList.add("down");
 		
 			check = 2;
+			first = 1;
 		}
 
-			
 	}
 
 	else if(event.key == "ArrowLeft"){
@@ -85,15 +87,49 @@ document.addEventListener("keydown", function(event){
 
 	}
 
-	//var sTop = window.getComputedStyle(snake).getPropertyValue("top");
-	//var sBot = window.getComputedStyle(snake).getPropertyValue("bottom");
-	//var fTop = window.getComputedStyle(food).getPropertyValue("top");
-	//var fBot = window.getComputedStyle(food).getPropertyValue("bottom");
+});
 
-	//var sLeft = window.getComputedStyle(snake).getPropertyValue("left");
-	//var sRight = window.getComputedStyle(snake).getPropertyValue("right");
-	//var fLeft = window.getComputedStyle(food).getPropertyValue("left");
-	//var fRight = window.getComputedStyle(food).getPropertyValue("right");
-	
-	//if(sTop <= fTop && sBot >= fBot && sLeft >= fLeft && sRight)
+document.addEventListener("keydown", function(){
+
+	setInterval(function(){
+
+		var sTop = parseInt(window.getComputedStyle(snake).getPropertyValue("top"));
+		var fTop = parseInt(window.getComputedStyle(food).getPropertyValue("top"));
+
+		var sLeft = parseInt(window.getComputedStyle(snake).getPropertyValue("left"));
+		var fLeft = parseInt(window.getComputedStyle(food).getPropertyValue("left"));
+
+		var swid = snake.clientWidth;
+		var sheight = snake.clientHeight;
+		
+		if(check == 1 && (sTop <= fTop+15 && sTop >= fTop) && (sLeft+20 >= fLeft && sLeft <= fLeft+15)){
+			food.style.left = Math.floor((Math.random() * r-l-15) + l);
+			food.style.top = Math.floor((Math.random() * b-15) + 15);
+
+			//snake.style.height = snake.clientHeight + 20;
+		}
+		
+		else if(check == 2 && (sTop+sheight >= fTop && sTop+sheight <= fTop+15) && (sLeft+20 >= fLeft && sLeft <= fLeft+15)){
+			food.style.left = Math.floor((Math.random() * r-l-15) + l);
+			food.style.top = Math.floor((Math.random() * b-15) + 15);
+
+			//snake.style.height = snake.clientHeight + 20;
+		}
+
+		else if(check == 3 && (sTop+20 >= fTop && sTop <= fTop+15) && (sLeft <= fLeft+15 && sLeft >= fLeft)){
+			food.style.left = Math.floor((Math.random() * r-l-15) + l);
+			food.style.top = Math.floor((Math.random() * b-15) + 15);
+
+			//snake.style.width = snake.clientWidth + 20;
+		}
+
+		else if(check == 4 && (sTop+20 >= fTop && sTop <= fTop+15) && (sLeft+swid >= fLeft && sLeft+swid <= fLeft+15)){
+			food.style.left = Math.floor((Math.random() * r-l-15) + l);
+			food.style.top = Math.floor((Math.random() * b-15) + 15);
+
+			//snake.style.width = snake.clientWidth + 20;
+		}
+		
+	}, 100);
+
 });
